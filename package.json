@@ -1,0 +1,30 @@
+{
+  "name": "sketch-fetch",
+  "version": "0.0.5",
+  "description": "Util library for sketch plugins handeling async HTTP requests",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "node ./scripts/build",
+    "test": "node ./scripts/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianburr/sketch-fetch.git"
+  },
+  "keywords": [
+    "sketch",
+    "sketch-fetch",
+    "sketch-plugin",
+    "sketch-http",
+    "http-requests"
+  ],
+  "author": "Julian Burr <hello@julianburr.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julianburr/sketch-fetch/issues"
+  },
+  "homepage": "https://github.com/julianburr/sketch-fetch#readme",
+  "dependencies": {
+    "sketch-debugger": "git+https://github.com/julianburr/sketch-debugger.git"
+  }
+}
