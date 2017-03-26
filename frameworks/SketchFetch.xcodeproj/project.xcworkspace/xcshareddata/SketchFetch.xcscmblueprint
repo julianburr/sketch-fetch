@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F99072EFC5966F0F772CFFDB0978B20F7B5C7DB7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F99072EFC5966F0F772CFFDB0978B20F7B5C7DB7" : 9223372036854775807,
+    "A90FF2921A43FBBAFB6708F1C6B10C5D7C33B04B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D09E65DB-942B-49B8-B290-7E2C073F6343",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F99072EFC5966F0F772CFFDB0978B20F7B5C7DB7" : "sketch-fetch\/",
+    "A90FF2921A43FBBAFB6708F1C6B10C5D7C33B04B" : "..\/.."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SketchFetch",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "frameworks\/SketchFetch.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/scotch-io\/scotch-box.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A90FF2921A43FBBAFB6708F1C6B10C5D7C33B04B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/julianburr\/sketch-fetch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F99072EFC5966F0F772CFFDB0978B20F7B5C7DB7"
+    }
+  ]
+}
