@@ -33,12 +33,12 @@ import { initWithContext as initFetch } from 'sketch-fetch';
 
 function initWithContext (context) {
   initFetch(context);
-    // Do your stuff...
+  // Do your stuff...
 }
 
 function myAwesomePluginEndpoint (context) {
   initWithContext(context);
-    // Do whatever your plugin should do...
+  // Do whatever your plugin should do...
 }
 ```
 
@@ -64,16 +64,16 @@ import { handleResponses } from 'sketch-fetch';
 
 function handleHttpResponse (context) {
   initWithContext(context);
-    handleResponses((callback, response) => {
-      switch (callback) {
-          case 'myCallback':
-              // Do something...
-            break;
-            default:
-              log('ERROR: Callback unknown');
-            break;
-        }
-    });
+  handleResponses((callback, response) => {
+    switch (callback) {
+      case 'myCallback':
+        // Do something...
+      break;
+      default:
+        log('ERROR: Callback unknown');
+      break;
+    }
+  });
 }
 ```
 
@@ -82,36 +82,36 @@ This method as of now has to be mapped to the handler `handleBridgeMessage` in y
 ### Bringing it all together
 
 ```js
-import fetch, { initFetch, handleResponses } from 'sketch-fetch';
+import fetch, { initWithContext as initFetch, handleResponses } from 'sketch-fetch';
 
 function initWithContext (context) {
   initFetch(context);
-    // Do your stuff...
+  // Do your stuff...
 }
 
 function myAwesomePluginEndpoint (context) {
   initWithContext(context);
     
-    // Fetch data from url
-    const options = {
-      callback: 'myCallback',
-        // See available options...
-    };
-    fetch('https://awesome.url', options);
+  // Fetch data from url
+  const options = {
+    callback: 'myCallback',
+    // See available options...
+  };
+  fetch('https://awesome.url', options);
 }
 
 function handleHttpResponse (context) {
   initWithContext(context);
-    handleResponses((callback, response) => {
-      switch (callback) {
-          case 'myCallback':
-              // Do something...
-            break;
-            default:
-              log('ERROR: Callback unknown');
-            break;
-        }
-    });
+  handleResponses((callback, response) => {
+    switch (callback) {
+      case 'myCallback':
+        // Do something...
+      break;
+      default:
+        log('ERROR: Callback unknown');
+      break;
+    }
+  });
 }
 ```
 
