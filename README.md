@@ -124,12 +124,12 @@ import fetch from 'sketch-fetch';
 
 fetch(url, options)
   .then(json => {
-      // Do something
-    })
-    .catch(() => {
-      // Handle any errors
-    })
-    .send(); // we would need that, cause we need to define the callbacks before we actually send the request...
+    // Do something
+  })
+  .catch(() => {
+    // Handle any errors
+  })
+  .send(); // we would need that, cause we need to define the callbacks before we actually send the request...
 ```
 
 The only problem with this is that we loose the current context. We could save (a serialized version of) the callbacks on the main thread and retrieve these on response, but we would need to make sure that all contexts will be saved and retrieved as well, such as already imported helper functions or other external libraries...
