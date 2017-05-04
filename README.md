@@ -115,6 +115,20 @@ function handleHttpResponse (context) {
 }
 ```
 
+### Available options
+
+```js
+{
+  callback: 'something', // string, identifier for the response handling
+  headers: {}, // object, key value pairs for the request header
+  args: {}, // object, key value pairs for normal string parameters
+  files: { // object, file paths to be sent (for any request type but GET)
+    varName: 'filepath'
+  },
+  method: 'GET', //string, GET|POST|PUT|DELETE|..., default is GET
+}
+```
+
 ## The ideal world
 
 This is all still not ideal. In a perfect world, we could handle requests just like we can with fetch in a browser environment, like so:
