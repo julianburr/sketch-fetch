@@ -1,12 +1,8 @@
 {
   "name": "sketch-fetch",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "description": "Util library for sketch plugins handeling async HTTP requests",
   "main": "lib/index.js",
-  "scripts": {
-    "build": "node ./scripts/build",
-    "test": "node ./scripts/test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/julianburr/sketch-fetch.git"

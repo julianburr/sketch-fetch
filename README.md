@@ -26,13 +26,20 @@ Also, due to the context issues described above, the workflow of asynchronous HT
 
 ### 1. Load the framework
 
-You have to load the framework before any of your requests, so to make sure this happens just include this snippet in your plugin in the beginning of every call of your `plugin.js` file:
+Either copy the framework files into your project or use the util function provided in your node build process, like so:
 
 ```js
-import { initWithContext as initFetch } from 'sketch-fetch';
+var fetch = require('sketch-fetch/lib/node');
+fetch.copyFrameworks(targetPath);
+```
+
+Then you have to load the framework before any of your requests, so to make sure this happens just include this snippet in your plugin in the beginning of every call of your `plugin.js` file:
+
+```js
+import { FetchCore } from 'sketch-fetch';
 
 function initWithContext (context) {
-  initFetch(context);
+  FetchCore.initWithContext(context);
   // Do your stuff...
 }
 
@@ -82,10 +89,10 @@ This method as of now has to be mapped to the handler `handleBridgeMessage` in y
 ### Bringing it all together
 
 ```js
-import fetch, { initWithContext as initFetch, handleResponses } from 'sketch-fetch';
+import fetch, { FetchCore, handleResponses } from 'sketch-fetch';
 
 function initWithContext (context) {
-  initFetch(context);
+  FetchCore.initWithContext(context);
   // Do your stuff...
 }
 
@@ -104,7 +111,7 @@ function handleHttpResponse (context) {
   initWithContext(context);
   handleResponses((callback, response) => {
     switch (callback) {
-      case 'myCallback':
+      case 'myCallback.SUCCESS':
         // Do something...
       break;
       default:
