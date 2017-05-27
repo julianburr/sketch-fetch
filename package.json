@@ -3,6 +3,9 @@
   "version": "0.0.9",
   "description": "Util library for sketch plugins handeling async HTTP requests",
   "main": "lib/index.js",
+  "scripts": {
+    "symlink-fix": "node ./scripts/symlink-fix.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/julianburr/sketch-fetch.git"
@@ -22,5 +25,10 @@
   "homepage": "https://github.com/julianburr/sketch-fetch#readme",
   "dependencies": {
     "sketch-debugger": "git+https://github.com/julianburr/sketch-debugger.git"
+  },
+  "devDependencies": {
+    "chalk": "^1.1.3",
+    "fs-extra": "^3.0.1",
+    "path": "^0.12.7"
   }
 }

@@ -1,0 +1,6 @@
+framework module SketchFetch {
+  umbrella header "SketchFetch.h"
+
+  export *
+  module * { export * }
+}
