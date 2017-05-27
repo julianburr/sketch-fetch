@@ -1,6 +1,6 @@
 {
   "name": "sketch-fetch",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Util library for sketch plugins handeling async HTTP requests",
   "main": "lib/index.js",
   "scripts": {
