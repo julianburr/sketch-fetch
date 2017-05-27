@@ -73,7 +73,7 @@ function handleHttpResponse (context) {
   initWithContext(context);
   handleResponses((callback, response) => {
     switch (callback) {
-      case 'myCallback':
+      case 'myCallback.ALWAYS':
         // Do something...
       break;
       default:
@@ -84,7 +84,9 @@ function handleHttpResponse (context) {
 }
 ```
 
-This method as of now has to be mapped to the handler `handleBridgeMessage` in your `manifest.json`.
+For every key (in this case `myCallback`), there will be two responses fired, one for `[KEY].ALWAYS`, and the other one `[KEY].SUCCESS` or `[KEY].FAILURE`, depending on the response.
+
+The entry point `handleHttpResponse` as of now has to be manually mapped into your `manifest.json`, `handleHttpResponse` being both handler and identifier.
 
 ### Bringing it all together
 
