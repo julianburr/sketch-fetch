@@ -12,6 +12,9 @@
 
 @implementation SFHttpRequestUtils
 
+NSString *pluginName = @"";
+NSString *callbackHandler = @"handleHttpResponse";
+
 +(NSMutableDictionary *) responses {
     static NSMutableDictionary* responseMap = nil;
     static dispatch_once_t oncePredicate;
@@ -19,6 +22,14 @@
         responseMap = [NSMutableDictionary dictionaryWithDictionary:@{}];
     });
     return responseMap;
+}
+
++(void)setPluginName:(NSString *)name {
+    pluginName = name;
+}
+
++(void)setCallbackHandler:(NSString *)handler {
+    callbackHandler = handler;
 }
 
 +(void)sendRequest:(NSURLRequest *)request withMetaData:(id)metaData withIdentifier:(NSString *)identifier {
@@ -85,11 +96,12 @@
         // NOTE: hard coded plugin file name as of now :/
         NSString *pluginPath = [[[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] firstObject] path];
         pluginPath = [pluginPath stringByAppendingPathComponent:@"com.bohemiancoding.sketch3/Plugins"];
-        pluginPath = [pluginPath stringByAppendingPathComponent:@"sketch-plugin-boilerplate.sketchplugin"];
+        pluginPath = [pluginPath stringByAppendingString:pluginName];
+        pluginPath = [pluginPath stringByAppendingPathComponent:@".sketchplugin"];
         NSURL *pluginUrl = [NSURL fileURLWithPath:pluginPath];
         // Finally, call the plugin method "handleHttpResponse". On the sketch side, it will read the response and process it,
         //  as well as calling possible callbacks that have been stored in the main thread dictionary
-        [[NSApp delegate] performSelector:runPluginCmdSel withObject:@"handleHttpResponse" withObject:pluginUrl];
+        [[NSApp delegate] performSelector:runPluginCmdSel withObject:callbackHandler withObject:pluginUrl];
     }] resume];
 }
 

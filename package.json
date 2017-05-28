@@ -4,7 +4,8 @@
   "description": "Util library for sketch plugins handeling async HTTP requests",
   "main": "lib/index.js",
   "scripts": {
-    "symlink-fix": "node ./scripts/symlink-fix.js"
+    "symlink-fix": "node ./scripts/symlink-fix.js",
+    "prepublish": "npm run symlink-fix"
   },
   "repository": {
     "type": "git",
