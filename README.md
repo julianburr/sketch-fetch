@@ -1,6 +1,6 @@
 # sketch-fetch
 
-[![NPM version](https://img.shields.io/npm/v/sketch-fetch)](https://www.npmjs.org/package/sketch-fetch)
+[![NPM version](https://img.shields.io/npm/v/sketch-fetch.svg)](https://www.npmjs.org/package/sketch-fetch)
 
 Util library for sketch plugins handling async HTTP requests
 
