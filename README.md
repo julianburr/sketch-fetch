@@ -1,8 +1,10 @@
 # sketch-fetch
 
+[![NPM version](https://img.shields.io/npm/v/sketch-fetch)](https://www.npmjs.org/package/sketch-fetch)
+
 Util library for sketch plugins handling async HTTP requests
 
-**NOTE: This library is still very experimental, and ideally the API will completely change, so I don't recommend using it in production just yet unless you know what you are doing 😉**
+**NOTE: This library is still very experimental, and ideally the API will completely change. However, to get things going, I encourage everyone to think about solutions for the problems described below, as well as play with and use this package, you should use it on a fixed version though, for your own sanity, in the very likely case of braking changes in the API 😉**
 
 ## The problem
 
