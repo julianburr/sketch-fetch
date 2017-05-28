@@ -13,7 +13,7 @@
 @implementation SFHttpRequestUtils
 
 NSString *pluginName = @"";
-NSString *callbackHandler = @"handleHttpResponse";
+NSString *callbackIdentifier = @"handleHttpResponse";
 
 +(NSMutableDictionary *) responses {
     static NSMutableDictionary* responseMap = nil;
@@ -28,8 +28,8 @@ NSString *callbackHandler = @"handleHttpResponse";
     pluginName = name;
 }
 
-+(void)setCallbackHandler:(NSString *)handler {
-    callbackHandler = handler;
++(void)setCallbackIdentifier:(NSString *)identifier {
+    callbackIdentifier = identifier;
 }
 
 +(void)sendRequest:(NSURLRequest *)request withMetaData:(id)metaData withIdentifier:(NSString *)identifier {
@@ -69,8 +69,6 @@ NSString *callbackHandler = @"handleHttpResponse";
                         @"callback":callback
                         };
         } else {
-            NSLog(@"error = %@", error);
-            NSLog(@"body = %@", body);
             payload = @{
                         @"result":@"error",
                         @"statusCode":@-1,
@@ -82,7 +80,6 @@ NSString *callbackHandler = @"handleHttpResponse";
                         };
         }
         
-        NSLog(@"Sending async request done");
         [self setResponse:payload forIdentifier:identifier];
         
         // Set selector and check if Sketch responses to it to avoid crashes
@@ -93,15 +90,15 @@ NSString *callbackHandler = @"handleHttpResponse";
         }
         
         // Determine plugin path
-        // NOTE: hard coded plugin file name as of now :/
+        // NOTE: the plugin's name MUST be set before the request using `setPluginName`
         NSString *pluginPath = [[[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] firstObject] path];
         pluginPath = [pluginPath stringByAppendingPathComponent:@"com.bohemiancoding.sketch3/Plugins"];
-        pluginPath = [pluginPath stringByAppendingString:pluginName];
-        pluginPath = [pluginPath stringByAppendingPathComponent:@".sketchplugin"];
+        pluginPath = [pluginPath stringByAppendingString:[NSString stringWithFormat: @"/%@.sketchplugin", pluginName]];
         NSURL *pluginUrl = [NSURL fileURLWithPath:pluginPath];
+        
         // Finally, call the plugin method "handleHttpResponse". On the sketch side, it will read the response and process it,
         //  as well as calling possible callbacks that have been stored in the main thread dictionary
-        [[NSApp delegate] performSelector:runPluginCmdSel withObject:callbackHandler withObject:pluginUrl];
+        [[NSApp delegate] performSelector:runPluginCmdSel withObject:callbackIdentifier withObject:pluginUrl];
     }] resume];
 }
 
